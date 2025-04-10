@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "@/components/custom/auth-provider";
+import Header from "@/components/custom/navbar";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -54,20 +56,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased max-w-4xl mx-auto py-12 sm:py-24 px-6",
-          fontSans.variable
-        )}
-      >
-        <ThemeProvider attribute="class" defaultTheme="light">
-          <TooltipProvider delayDuration={0}>
-            {children}
-            <Navbar />
-          </TooltipProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+    <AuthProvider>
+
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={cn(
+            "min-h-screen bg-background font-sans antialiased max-w-4xl mx-auto py-12 sm:py-24 px-6",
+            fontSans.variable
+          )}
+        >
+          <ThemeProvider attribute="class" defaultTheme="light">
+            <TooltipProvider delayDuration={0}>
+              {/* <Header /> */}
+              {children}
+              <Navbar />
+            </TooltipProvider>
+          </ThemeProvider>
+        </body>
+      </html>
+    </AuthProvider>
   );
 }
