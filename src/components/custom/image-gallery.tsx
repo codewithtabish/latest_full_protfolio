@@ -2,6 +2,8 @@
 
 import { DATA } from "@/data/resume";
 import { BlurFade } from "../magicui/blur-fade";
+import { Lens } from "../magicui/lens";
+
 
 
 const images = DATA.gallery
@@ -20,13 +22,19 @@ export default function ImageGallery() {
 
 
                 {images.map((imageUrl, idx) => (
-                    <BlurFade key={imageUrl?.avatarUrl} delay={0.25 + idx * 0.05} inView>
+                    <BlurFade key={imageUrl?.avatarUrl} delay={0.25 + idx * 0.05} inView
+                        className="cursor-pointer"
+                    >
+                        <Lens isStatic position={{ x: 260, y: 150 }}>
 
-                        <img
-                            className="mb-4 size-full rounded-lg object-contain"
-                            src={imageUrl?.avatarUrl}
-                            alt={`Random stock image ${idx + 1}`}
-                        />
+
+
+                            <img
+                                className="mb-4 size-full rounded-lg object-contain cursor-pointer"
+                                src={imageUrl?.avatarUrl}
+                                alt={`Random stock image ${idx + 1}`}
+                            />
+                        </Lens>
                     </BlurFade>
                 ))}
             </div>

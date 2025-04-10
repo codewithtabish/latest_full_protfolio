@@ -26,6 +26,7 @@ model Blog {
   id              String               @id @default(uuid())
   title           String
   content         Json // Now content is a reference to the BlogContent model
+  blogTopImage    String
   userId          String
   user            User                 @relation(fields: [userId], references: [id])
   views           Int                  @default(0)
@@ -42,24 +43,25 @@ model Blog {
 
 // Project Model
 model Project {
-  id          String        @id @default(uuid())
-  name        String
-  description String
-  userId      String
-  likes       Int
-  user        User          @relation(fields: [userId], references: [id])
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
-  likesList   ProjectLike[] // Track who liked the project
-  comments    Comment[] // One-to-many relationship with CommentZZ
-  videoUrl    String
-  githubUrl   String
-  demoUrl     String
-  liveWebUrl  String?
-  techStacks  Json
+  id              String        @id @default(uuid())
+  name            String
+  description     String
+  userId          String
+  likes           Int
+  projectTopImage String
+  user            User          @relation(fields: [userId], references: [id])
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  likesList       ProjectLike[] // Track who liked the project
+  comments        Comment[] // One-to-many relationship with CommentZZ
+  videoUrl        String
+  githubUrl       String
+  demoUrl         String
+  liveWebUrl      String?
+  techStacks      Json
   // String[] // Array of strings to hold technologies
 
-  recommendations ProjectRecommendation[] // User project recommendations
+  ProjectRecommendation ProjectRecommendation[]
 }
 
 // BlogContent Model
@@ -155,13 +157,13 @@ model User {
   courses                Course[] // One-to-many relationship with Course
   notifications          Notification[] // One-to-many relationship with Notifications
   projects               Project[] // One-to-many relationship with Project
-  comments               Comment[] // One-to-many relationship with Comment
-  blogLikes              BlogLike[] // One-to-many relationship with BlogLike
-  projectLikes           ProjectLike[] // One-to-many relationship with ProjectLike
   // techStacks             TechStack[] // One-to-many relationship with TechStack
   blogRecommendations    BlogRecommendation[] // Recommendations based on blogs
   projectRecommendations ProjectRecommendation[] // Recommendations based on projects
+  Comment                Comment[]
   BlogViews              BlogViews[]
+  BlogLike               BlogLike[]
+  ProjectLike            ProjectLike[]
 }
 
 // Notification Model
