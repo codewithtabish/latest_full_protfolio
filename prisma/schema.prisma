@@ -51,7 +51,11 @@ model Project {
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
   likesList   ProjectLike[] // Track who liked the project
-  comments    Comment[] // One-to-many relationship with Comment
+  comments    Comment[] // One-to-many relationship with CommentZZ
+  videoUrl    String
+  githubUrl   String
+  demoUrl     String
+  liveWebUrl  String?
   techStacks  Json
   // String[] // Array of strings to hold technologies
 

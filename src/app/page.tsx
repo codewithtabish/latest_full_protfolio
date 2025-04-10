@@ -1,5 +1,8 @@
+import FeedbackListData from "@/components/custom/feedback-list";
+import FeedbackList from "@/components/custom/feedback-list";
+import ImageGallery from "@/components/custom/image-gallery";
 import { HackathonCard } from "@/components/hackathon-card";
-import BlurFade from "@/components/magicui/blur-fade";
+import { BlurFade } from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
@@ -13,7 +16,7 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
   return (
-    <main className="flex flex-col min-h-[100dvh] space-y-10">
+    <main className="flex flex-col min-h-[100dvh] space-y-20">
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
@@ -73,6 +76,7 @@ export default function Page() {
             </BlurFade>
           ))}
         </div>
+
       </section>
       <section id="education">
         <div className="flex min-h-0 flex-col gap-y-3">
@@ -111,6 +115,23 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <section className="flex flex-wrap gap-1 md:mt-18 mt-8">
+        <BlurFade delay={BLUR_FADE_DELAY * 9}>
+          <h2 className="text-xl font-bold my-2"></h2>
+        </BlurFade>
+        <ImageGallery />
+
+      </section>
+      <section className="flex flex-wrap gap-1 md:mt-18 mt-8">
+        <BlurFade delay={BLUR_FADE_DELAY * 9}>
+          <h2 className="text-xl font-bold my-2"></h2>
+        </BlurFade>
+        <FeedbackListData />
+        {/* <FeedbackList feedbacks={ } /> */}
+
+      </section>
+
+
       <section id="projects">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
@@ -152,6 +173,10 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+
+
+
       <section id="hackathons">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>

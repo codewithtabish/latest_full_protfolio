@@ -43,6 +43,38 @@ export const DATA = {
     "Redis",
     "RabbitMQ",
     "Firebase"
+  ],
+  gallery: [
+    {
+      avatarUrl: "/image-one.png",
+
+    },
+    {
+      avatarUrl: "/image-two.png",
+
+    },
+    {
+      avatarUrl: "/image-three.jpg",
+
+    },
+    {
+      avatarUrl: "/image-four.jpg",
+
+    },
+    {
+      avatarUrl: "/image-five.jpg",
+
+    },
+    {
+      avatarUrl: "/image-six.jpg",
+
+    },
+    {
+      avatarUrl: "/image-seven.jpg",
+
+    },
+
+
   ]
   ,
   navbar: [
