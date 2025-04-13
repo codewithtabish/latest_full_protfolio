@@ -21,8 +21,8 @@ export default function Page() {
       <Header />
       <main className="flex flex-col min-h-[100dvh] space-y-20 mt-28 relative">
         <section id="hero">
-          <div className="mx-auto w-full max-w-2xl space-y-8">
-            <div className="gap-2 flex justify-between">
+          <div className="mx-auto w-full  space-y-8">
+            <div className=" flex md:flex-row flex-col-reverse md:gap-2 gap-4 justify-between">
               <div className="flex-col flex flex-1 space-y-1.5">
                 <BlurFadeText
                   delay={BLUR_FADE_DELAY}
@@ -36,7 +36,7 @@ export default function Page() {
                   text={DATA.description}
                 />
               </div>
-              <BlurFade delay={BLUR_FADE_DELAY}>
+              <BlurFade delay={BLUR_FADE_DELAY} className="mx-auto md:mb-0 mb-5">
                 <Avatar className="size-28 border">
                   <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
                   <AvatarFallback>{DATA.initials}</AvatarFallback>
