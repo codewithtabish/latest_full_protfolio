@@ -1,5 +1,3 @@
-'use server';
-
 import React from 'react';
 import { RegisterLink, LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
@@ -32,7 +30,7 @@ const HeaderRightSide = async () => {
     return (
         <div>
             {!user ? (
-                <LoginLink postLoginRedirectURL='/'>
+                <LoginLink postLoginRedirectURL='/' >
                     <Badge className='px-4 py-1'>
                         LOGIN
                     </Badge>
@@ -43,11 +41,8 @@ const HeaderRightSide = async () => {
                         <p className="text-red-500">{errorMessage}</p>
                     ) : (
                         <>
-                            {/* <p>{gettingUser?.name}</p> */}
                             <HeaderAvatar user={gettingUser} />
-                            <LogoutLink postLogoutRedirectURL='/'>
-                                Logout
-                            </LogoutLink>
+
                         </>
                     )}
                 </>
