@@ -8,6 +8,7 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/components/custom/auth-provider";
 import Header from "@/components/custom/navbar";
+import { MainProvider } from "@/providers/main-provider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -66,11 +67,14 @@ export default function RootLayout({
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="light">
-            <TooltipProvider delayDuration={0}>
-              {/* <Header /> */}
-              {children}
-              <Navbar />
-            </TooltipProvider>
+            <MainProvider>
+
+              <TooltipProvider delayDuration={0}>
+                {/* <Header /> */}
+                {children}
+                <Navbar />
+              </TooltipProvider>
+            </MainProvider>
           </ThemeProvider>
         </body>
       </html>

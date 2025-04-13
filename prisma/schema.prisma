@@ -148,8 +148,8 @@ model BlogRecommendation {
 model User {
   id                     String                  @id @default(uuid())
   name                   String
-  email                  String                  @unique
-  password               String
+  email                  String
+  profilePicture         String?
   isAdmin                Boolean                 @default(false) // Field to define if the user is an admin
   createdAt              DateTime                @default(now())
   updatedAt              DateTime                @updatedAt

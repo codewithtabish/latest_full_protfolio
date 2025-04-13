@@ -59,8 +59,8 @@ declare global {
         id: string;
         name: string;
         email: string;
-        password: string;
         isAdmin: boolean;
+        profilePicture?: string;
         createdAt: Date;
         updatedAt: Date;
         blogs: Blog[];
@@ -140,6 +140,13 @@ declare global {
         project: Project;
         createdAt: Date;
     };
+}
+
+
+export interface APIRESPONSE<T> {
+    error?: string;
+    data?: T;
+    message?: string;
 }
 
 export { }; // Ensures the file is treated as a module
