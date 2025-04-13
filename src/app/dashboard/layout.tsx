@@ -3,6 +3,8 @@ import React from 'react'
 import { APIRESPONSE } from '../../../types';
 import { saveAndGetUser } from '@/actions/user';
 import { redirect } from 'next/navigation';
+import { cn } from '@/lib/utils';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const DashboardMainRoot = async ({ children }: { children: React.ReactNode }) => {
     let gettingUser: User | null = null;
@@ -26,10 +28,15 @@ const DashboardMainRoot = async ({ children }: { children: React.ReactNode }) =>
     }
 
     return (
-        <div>
+        <body
+            className={cn(
+                "min-h-screen bg-background font-sans antialiased    px-6",
+                // fontSans.variable
+            )}
+        >
             {children}
 
-        </div>
+        </body >
     )
 }
 

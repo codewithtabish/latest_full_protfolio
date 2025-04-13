@@ -9,6 +9,7 @@ import "./globals.css";
 import { AuthProvider } from "@/components/custom/auth-provider";
 import Header from "@/components/custom/navbar";
 import { MainProvider } from "@/providers/main-provider";
+import MainLayout from "./(main)/layout";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -60,23 +61,11 @@ export default function RootLayout({
     <AuthProvider>
 
       <html lang="en" suppressHydrationWarning>
-        <body
-          className={cn(
-            "min-h-screen bg-background font-sans antialiased max-w-4xl mx-auto py-12 sm:py-24 px-6",
-            fontSans.variable
-          )}
-        >
-          <ThemeProvider attribute="class" defaultTheme="light">
-            <MainProvider>
+        {/* yes i am here */}
 
-              <TooltipProvider delayDuration={0}>
-                {/* <Header /> */}
-                {children}
-                <Navbar />
-              </TooltipProvider>
-            </MainProvider>
-          </ThemeProvider>
-        </body>
+        {children}
+        {/* <MainLayout /> */}
+
       </html>
     </AuthProvider>
   );
